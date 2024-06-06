@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class DockManager : MonoBehaviour
 {
-    public DockManager Instance;
+    public static DockManager Instance;
     
     private List<CardDock> _cardDocks;
     
-    void OnAwake()
+    void Awake()
     {
-        if(this.Instance == null)
-            this.Instance = this;
+        if(Instance == null)
+            Instance = this;
         else 
             Destroy(this);
     }
@@ -29,7 +29,8 @@ public class DockManager : MonoBehaviour
 
         return targetDock;
     }
-    
 
-    
+    public void RegisterDock(CardDock dock){
+        this._cardDocks.Add(dock);
+    }
 }

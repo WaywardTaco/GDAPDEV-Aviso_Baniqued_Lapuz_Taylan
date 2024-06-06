@@ -15,6 +15,10 @@ public class CardDock : MonoBehaviour
         get { return _dockSuit;}
     }
     
+    private void Awake() {
+        DockManager.Instance.RegisterDock(this);
+    }
+
     public void AddCard(CardData card){
         this._dockStack.Add(card);
     }
