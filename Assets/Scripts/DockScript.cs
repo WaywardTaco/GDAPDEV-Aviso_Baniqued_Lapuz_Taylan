@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class DockScript : MonoBehaviour, ISwipeable
 {
-    public CardData _cardData;
+
     public void OnSwipe(SwipeEventArgs args)
     {
         if (args.Direction == ESwipeDirection.RIGHT)
         {
 
-            DockManager.Instance.tryDockWith(_cardData.dockTargetData);
-                    }
+            DockManager.Instance.tryDockWith(CardData dockTargetData);
+
+        }
         else
         {
             Debug.Log("Swipe direction is not right");
