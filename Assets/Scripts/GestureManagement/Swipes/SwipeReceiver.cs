@@ -24,7 +24,7 @@ public class SwipeReceiver : MonoBehaviour
             {             
                 
                 
-                DockManager.Instance.tryDockWith();
+                //DockManager.Instance.tryDockWith();
                 
 
             }

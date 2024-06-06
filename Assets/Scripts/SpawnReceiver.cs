@@ -14,13 +14,13 @@ public class SpawnReceiver : MonoBehaviour, ITappable, ISwipeable, IDraggable
         this._targetPosition = this.transform.position;
         this._originalPosition = this.transform.position;
 
-        GestureManager.Instance.Reset += this.Reset;
+        //GestureManager.Instance.Reset += this.Reset;
 
     }
 
     void OnDisable()
     {
-        GestureManager.Instance.Reset -= this.Reset;
+        //GestureManager.Instance.Reset -= this.Reset;
     }
 
     public void OnTap(TapEventArgs args){
