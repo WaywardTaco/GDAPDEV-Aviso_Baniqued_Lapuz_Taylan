@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CardDock : MonoBehaviour
 {
-    private List<CardData> _dockStack;
-    private CardData.CardSuit _dockSuit;
+    [SerializeField] private List<CardData> _dockStack;
+    [SerializeField] private CardData.CardSuit _dockSuit;
 
     public CardData TopCard {
         get { return _dockStack.Last(); }
