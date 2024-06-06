@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 13710900}
   - component: {fileID: 13710899}
   - component: {fileID: 13710898}
-  - component: {fileID: 13710901}
   m_Layer: 0
   m_Name: Dock Hearts
   m_TagString: Untagged
@@ -228,19 +227,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13710896}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &13710901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13710896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4afef9216d562e94b8eb2faa2c35f151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dockSuit: 0
 --- !u!1 &77340967
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +855,6 @@ GameObject:
   - component: {fileID: 939524286}
   - component: {fileID: 939524285}
   - component: {fileID: 939524284}
-  - component: {fileID: 939524287}
   m_Layer: 0
   m_Name: Dock Diamonds
   m_TagString: Untagged
@@ -966,19 +951,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939524282}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &939524287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939524282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4afef9216d562e94b8eb2faa2c35f151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dockSuit: 2
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +1055,6 @@ GameObject:
   - component: {fileID: 1242060970}
   - component: {fileID: 1242060969}
   - component: {fileID: 1242060968}
-  - component: {fileID: 1242060971}
   m_Layer: 0
   m_Name: Dock Spades
   m_TagString: Untagged
@@ -1180,19 +1151,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242060966}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1242060971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242060966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4afef9216d562e94b8eb2faa2c35f151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dockSuit: 1
 --- !u!1 &1583408506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,7 +1207,6 @@ GameObject:
   - component: {fileID: 1677890086}
   - component: {fileID: 1677890085}
   - component: {fileID: 1677890084}
-  - component: {fileID: 1677890087}
   m_Layer: 0
   m_Name: Dock Clubs
   m_TagString: Untagged
@@ -1346,19 +1303,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677890082}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1677890087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677890082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4afef9216d562e94b8eb2faa2c35f151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dockSuit: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
