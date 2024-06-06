@@ -16,29 +16,29 @@ public class SwipeReceiver : MonoBehaviour
         Debug.Log("Hello");
         Debug.Log(args.Direction);
 
+            if (args.Direction == ESwipeDirection.RIGHT)
+            {
+                GameObject obj;
 
-        if (args.Direction == ESwipeDirection.RIGHT)
-        {
-            GameObject obj;
 
-            obj.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("Swipe direction is not right");
+            }
+       
+            // if(args.HitObject != null)
+            //     return;
+
+            // GameObject obj = GameObject.Instantiate(templateObject, this.transform);
+            // obj.SetActive(true);
+
+            // Vector3 spawnLoc = Vector3.zero;
+
+            // Ray ray = Camera.main.ScreenPointToRay(args.Position);
+
+            // spawnLoc += ray.GetPoint(10);
+
+            // obj.transform.localPosition = spawnLoc;
         }
-        else
-        {
-            Debug.Log("Swipe direction is not right");
-        }
-        // if(args.HitObject != null)
-        //     return;
-
-        // GameObject obj = GameObject.Instantiate(templateObject, this.transform);
-        // obj.SetActive(true);
-
-        // Vector3 spawnLoc = Vector3.zero;
-        
-        // Ray ray = Camera.main.ScreenPointToRay(args.Position);
-
-        // spawnLoc += ray.GetPoint(10);
-
-        // obj.transform.localPosition = spawnLoc;
     }
-}
