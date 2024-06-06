@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,9 @@ public class CardLookManager : MonoBehaviour
             Destroy(this);
     }
     
-    public Material GetCardLook(CardData data){
-        
+    public Texture GetCardLook(CardData data){
+        // data.
+
+        return null;
     }
 }
