@@ -11,15 +11,14 @@ public class CardDock : MonoBehaviour
         get { return _dockStack.Last(); }
     }
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public void AddCard(CardData card){
+        this._dockStack.Add(card);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public CardData RemoveTop(){
+        CardData topCard = this._dockStack.Last();
+        this._dockStack.Remove(topCard);
         
+        return topCard;
     }
 }
