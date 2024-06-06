@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SwipeReceiver : MonoBehaviour
-{   
+{
+    private CardData _cardData;
+
     void Start(){        
         GestureManager.Instance.OnSwipe += this.OnSwipe;
     }
@@ -16,10 +18,14 @@ public class SwipeReceiver : MonoBehaviour
         Debug.Log("Hello");
         Debug.Log(args.Direction);
 
-            if (args.Direction == ESwipeDirection.RIGHT)
-            {
-                GameObject obj;
 
+
+            if (args.Direction == ESwipeDirection.RIGHT)
+            {             
+                
+                
+                DockManager.Instance.tryDockWith();
+                
 
             }
             else
