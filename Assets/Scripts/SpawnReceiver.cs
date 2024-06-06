@@ -71,8 +71,11 @@ public class SpawnReceiver : MonoBehaviour, ITappable, ISwipeable, IDraggable
         {
             this._targetPosition = hitObject.transform.position;
             this._targetPosition.y += (float) 0.5;
-            this.transform.position = hitObject.transform.position;
+            this._originalPosition = this._targetPosition;
         }
+
+        this.transform.position = this._originalPosition;
+
     }
 
 
