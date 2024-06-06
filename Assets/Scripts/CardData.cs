@@ -25,9 +25,14 @@ public class CardData {
 
     public bool isDockableWith(CardData dockTargetData){
         return 
-            (this._value == dockTargetData._value - 1 ||
-                this._value == 1) &&
+            this._value == dockTargetData._value - 1 &&
             this._suit == dockTargetData.Suit;
+    }
+
+    public bool isDockableWith(CardSuit dockSuit){
+        return 
+            this._value == 1 &&
+            this._suit == dockSuit;
     }
 
     private bool isSuitOppositeColor(CardSuit comparisonSuit){

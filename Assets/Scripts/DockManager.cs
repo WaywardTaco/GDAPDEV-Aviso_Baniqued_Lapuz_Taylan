@@ -21,10 +21,11 @@ public class DockManager : MonoBehaviour
         CardDock targetDock = null;
 
         foreach(CardDock dock in this._cardDocks){
-            if(targetDockCard.)
+            if(targetDockCard.isDockableWith(dock.TopCard) || (targetDockCard.isDockableWith(dock.DockSuit))){
+                targetDock = dock;
+                break;
+            }
         }
-
-
 
         return targetDock;
     }
