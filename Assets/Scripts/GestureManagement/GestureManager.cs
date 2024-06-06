@@ -18,6 +18,8 @@ public class GestureManager : MonoBehaviour
     private Vector2 _startPoint = Vector2.zero;
     private Vector2 _endPoint = Vector2.zero;
 
+    public EventHandler<DragEventArgs> Reset;
+
     // Start is called before the first frame update
     void Awake(){
         if(Instance == null)
@@ -39,9 +41,11 @@ public class GestureManager : MonoBehaviour
                     this._endPoint = this._trackedFinger.position;
                     this.CheckTap();
                     this.CheckSwipe();
+                    Reset(this, null);
                     break;
                 default:
                     this._gestureTime += Time.deltaTime;
+                    this.CheckDrag();
                     break;
             }
         }
