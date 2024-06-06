@@ -15,7 +15,7 @@ public class SwipeReceiver : MonoBehaviour
     
     public void OnSwipe(object sender, SwipeEventArgs args){
         Debug.Log("Hello");
-        Debug.Log(args.Direction);
+        Debug.Log(args.Direction);  
        
             // if(args.HitObject != null)
             //     return;
