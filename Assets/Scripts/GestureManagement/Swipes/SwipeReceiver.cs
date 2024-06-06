@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SwipeReceiver : MonoBehaviour
 {
-    private CardData _cardData;
 
     void Start(){        
         GestureManager.Instance.OnSwipe += this.OnSwipe;
@@ -20,18 +19,7 @@ public class SwipeReceiver : MonoBehaviour
 
 
 
-            if (args.Direction == ESwipeDirection.RIGHT)
-            {             
-                
-                
-                DockManager.Instance.tryDockWith();
-                
 
-            }
-            else
-            {
-                Debug.Log("Swipe direction is not right");
-            }
        
             // if(args.HitObject != null)
             //     return;
