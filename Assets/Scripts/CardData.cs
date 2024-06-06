@@ -2,19 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardData {
+public class CardData : MonoBehaviour {
     public enum CardSuit {
         HEARTS, SPADES, DIAMONDS, CLUBS
     }
 
     private int _value;
     private CardSuit _suit;
+    private bool _isRevealed = false;
 
     public int Value {
         get {return _value;}
     }
     public CardSuit Suit {
         get {return _suit;}
+    }
+    public bool IsRevealed {
+        get {return _isRevealed;}
+    }
+
+    private void Update(){
+        
     }
 
     public bool isStackable(CardData stackTargetData){
@@ -42,5 +50,15 @@ public class CardData {
             ((this.Suit == CardSuit.CLUBS || this.Suit == CardSuit.SPADES ) &&
                 (comparisonSuit == CardSuit.HEARTS || comparisonSuit == CardSuit.DIAMONDS))
         );
+    }
+
+    public void Reveal(){
+        if(!this._isRevealed)
+            this._isRevealed = true;
+    }
+
+    public void Hide(){
+        if(this._isRevealed)
+            this._isRevealed = false;
     }
 }
