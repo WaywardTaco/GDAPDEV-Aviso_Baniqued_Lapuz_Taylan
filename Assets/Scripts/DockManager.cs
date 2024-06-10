@@ -30,7 +30,17 @@ public class DockManager : MonoBehaviour
         return targetDock;
     }
 
-    public void RegisterDock(CardDock dock){
+    public void RegisterDock(CardDock dock)
+    {
         this._cardDocks.Add(dock);
     }
+
+    public void DockCard(CardData cardData, CardDock targetDock)
+    {
+        cardData.transform.SetParent(targetDock.transform);
+        cardData.transform.localPosition = Vector3.zero;
+        targetDock.AddCard(cardData); 
+        cardData.Reveal();
+    }
+
 }

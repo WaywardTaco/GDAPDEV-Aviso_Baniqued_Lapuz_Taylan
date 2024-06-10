@@ -17,21 +17,6 @@ public class SwipeReceiver : MonoBehaviour
     public void OnSwipe(object sender, SwipeEventArgs args){
         Debug.Log("Hello");
         Debug.Log(args.Direction);
-
-
-
-            if (args.Direction == ESwipeDirection.RIGHT)
-            {             
-                
-                
-                //DockManager.Instance.tryDockWith();
-                
-
-            }
-            else
-            {
-                Debug.Log("Swipe direction is not right");
-            }
        
             // if(args.HitObject != null)
             //     return;
