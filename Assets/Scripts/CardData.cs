@@ -7,9 +7,10 @@ public class CardData : MonoBehaviour {
         HEARTS, SPADES, DIAMONDS, CLUBS
     }
 
-    private int _value;
-    private CardSuit _suit;
-    private bool _isRevealed = false;
+    [Header("Card Information")]
+    [SerializeField] private int _value;
+    [SerializeField] private CardSuit _suit;
+    [SerializeField] private bool _isRevealed = false;
 
     public int Value {
         get {return _value;}
@@ -21,8 +22,8 @@ public class CardData : MonoBehaviour {
         get {return _isRevealed;}
     }
 
-    private void Update(){
-        
+    private void Start(){
+        this.updateTexture();
     }
 
     public bool isStackable(CardData stackTargetData){
@@ -52,13 +53,27 @@ public class CardData : MonoBehaviour {
         );
     }
 
+    private void updateTexture(){
+        this.gameObject.GetComponent<Renderer>()?.material.SetTexture("_MainTex", CardLookManager.Instance.GetCardLook(this.Value, this.Suit, this.IsRevealed));
+    }
+
+    public void setData(int value, CardSuit suit){
+        this._value = value;
+        this._suit = suit;
+
+        this.updateTexture();
+    }
+
     public void Reveal(){
         if(!this._isRevealed)
             this._isRevealed = true;
+        this.updateTexture();   
     }
 
     public void Hide(){
         if(this._isRevealed)
             this._isRevealed = false;
+        
+        this.updateTexture();
     }
 }
