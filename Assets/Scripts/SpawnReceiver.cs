@@ -43,7 +43,7 @@ public class SpawnReceiver : MonoBehaviour, ITappable, ISwipeable, IDraggable, I
 
     public void OnReset(DragEventArgs args)
     {
-        if (this.gameObject.GetComponent<CardData>() != null)
+        if (this.gameObject.GetComponent<CardData>() != null && args.HitObject.GetComponent<CardData>() != null)
         {
             if (this.gameObject.GetComponent<CardData>().isStackable(args.HitObject.GetComponent<CardData>()))
             {

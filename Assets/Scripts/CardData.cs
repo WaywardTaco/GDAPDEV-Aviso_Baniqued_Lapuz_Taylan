@@ -28,7 +28,7 @@ public class CardData : MonoBehaviour {
 
     public bool isStackable(CardData stackTargetData){
         return 
-            this._value == stackTargetData._value + 1 &&
+            this._value == stackTargetData._value - 1 &&
             this.isSuitOppositeColor(stackTargetData.Suit);
     }
 

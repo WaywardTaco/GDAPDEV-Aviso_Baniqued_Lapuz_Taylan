@@ -55,9 +55,9 @@ public class GestureManager : MonoBehaviour
     {
         if(this.DragObject != null)
         {
-            this.DragObject.transform.position = this._startPoint;
+            this.DragObject.SetActive(false);
             GameObject hitObject = GetHitObject(this._endPoint);
-
+            this.DragObject.SetActive(true);
             DragEventArgs args = new(this._trackedFinger, hitObject);
            
             IResettable target = this.DragObject.GetComponent<IResettable>();
@@ -125,7 +125,7 @@ public class GestureManager : MonoBehaviour
 
     private void FireDragEvent(){
         GameObject hitObject = this.GetHitObject(this._trackedFinger.position);
-        if (hitObject != null)
+        if (hitObject != null && this.DragObject == null)
             this.DragObject = hitObject;
 
         DragEventArgs args = new (this._trackedFinger, this.DragObject);
