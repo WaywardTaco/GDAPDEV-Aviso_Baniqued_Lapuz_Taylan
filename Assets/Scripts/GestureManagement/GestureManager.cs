@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GestureManager : MonoBehaviour
 {
@@ -17,8 +18,6 @@ public class GestureManager : MonoBehaviour
     private float _gestureTime;
     private Vector2 _startPoint = Vector2.zero;
     private Vector2 _endPoint = Vector2.zero;
-
-    public EventHandler<DragEventArgs> Reset;
 
     // Start is called before the first frame update
     void Awake(){
@@ -37,17 +36,41 @@ public class GestureManager : MonoBehaviour
                     this._startPoint = this._trackedFinger.position;
                     this._gestureTime = 0.0f;
                     break;
-                case TouchPhase.Ended:  
+                case TouchPhase.Ended:
+                    this.Reset();
+                    DragObject = null;
                     this._endPoint = this._trackedFinger.position;
                     this.CheckTap();
                     this.CheckSwipe();
-                    //this.Reset(this, null);
                     break;
                 default:
                     this._gestureTime += Time.deltaTime;
                     this.CheckDrag();
                     break;
             }
+        }
+    }
+
+    private void Reset()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = this._endPoint;
+
+        GameObject hitObject = null;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        if (results.Count > 1)
+        {
+            hitObject = results[1].gameObject;
+        }
+
+        DragEventArgs args = new(this._trackedFinger, this.DragObject);
+        if (this.DragObject != null)
+        {
+            IResettable target = this.DragObject.GetComponent<IResettable>();
+            if (target != null)
+                target.Reset(args, hitObject);
         }
     }
 
@@ -105,12 +128,15 @@ public class GestureManager : MonoBehaviour
             this.OnSwipe(this, args);
     }
 
+    GameObject DragObject = null;
+
     private void FireDragEvent(){
         GameObject hitObject = this.GetHitObject(this._trackedFinger.position);
-        
-        DragEventArgs args = new (this._trackedFinger, hitObject);
-        if(hitObject != null){
-            IDraggable target = hitObject.GetComponent<IDraggable>();
+        if (hitObject != null) this.DragObject = hitObject;
+
+        DragEventArgs args = new (this._trackedFinger, this.DragObject);
+        if(this.DragObject != null){
+            IDraggable target = this.DragObject.GetComponent<IDraggable>();
             if(target != null)
                 target.OnDrag(args);
         }
