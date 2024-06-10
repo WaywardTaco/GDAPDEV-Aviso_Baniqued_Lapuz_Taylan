@@ -57,6 +57,13 @@ public class CardData : MonoBehaviour {
         this.gameObject.GetComponent<Renderer>()?.material.SetTexture("_MainTex", CardLookManager.Instance.GetCardLook(this.Value, this.Suit, this.IsRevealed));
     }
 
+    public void setData(int value, CardSuit suit){
+        this._value = value;
+        this._suit = suit;
+
+        this.updateTexture();
+    }
+
     public void Reveal(){
         if(!this._isRevealed)
             this._isRevealed = true;
