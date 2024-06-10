@@ -22,8 +22,8 @@ public class CardData : MonoBehaviour {
         get {return _isRevealed;}
     }
 
-    private void Awake(){
-        this.gameObject.GetComponent<Renderer>()?.material.SetTexture("_MainTex", CardLookManager.Instance.GetCardLook(this.Value, this.Suit, this.IsRevealed));
+    private void Start(){
+        this.updateTexture();
     }
 
     public bool isStackable(CardData stackTargetData){
@@ -53,17 +53,27 @@ public class CardData : MonoBehaviour {
         );
     }
 
+    private void updateTexture(){
+        this.gameObject.GetComponent<Renderer>()?.material.SetTexture("_MainTex", CardLookManager.Instance.GetCardLook(this.Value, this.Suit, this.IsRevealed));
+    }
+
+    public void setData(int value, CardSuit suit){
+        this._value = value;
+        this._suit = suit;
+
+        this.updateTexture();
+    }
+
     public void Reveal(){
         if(!this._isRevealed)
             this._isRevealed = true;
-        
-        this.gameObject.GetComponent<Renderer>()?.material.SetTexture("_MainTex", CardLookManager.Instance.GetCardLook(this.Value, this.Suit, this.IsRevealed));
+        this.updateTexture();   
     }
 
     public void Hide(){
         if(this._isRevealed)
             this._isRevealed = false;
         
-        this.gameObject.GetComponent<Renderer>()?.material.SetTexture("_MainTex", CardLookManager.Instance.GetCardLook(this.Value, this.Suit, this.IsRevealed));
+        this.updateTexture();
     }
 }
