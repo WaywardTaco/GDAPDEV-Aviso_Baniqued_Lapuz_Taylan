@@ -41,7 +41,7 @@ public class GestureManager : MonoBehaviour
                     this._endPoint = this._trackedFinger.position;
                     this.CheckTap();
                     this.CheckSwipe();
-                    Reset(this, null);
+                    //this.Reset(this, null);
                     break;
                 default:
                     this._gestureTime += Time.deltaTime;
