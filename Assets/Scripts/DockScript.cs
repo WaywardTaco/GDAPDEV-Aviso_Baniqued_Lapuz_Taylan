@@ -20,6 +20,7 @@ public class DockScript : MonoBehaviour, ISwipeable
 
                 if (dock != null)
                 {
+                    DockManager.Instance.DockCard(cardData, dock);
                     Debug.Log("Card successfully docked.");
 
                 }
