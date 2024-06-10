@@ -37,9 +37,9 @@ public class GestureManager : MonoBehaviour
                     this._gestureTime = 0.0f;
                     break;
                 case TouchPhase.Ended:
+                    this._endPoint = this._trackedFinger.position;
                     this.Reset();
                     DragObject = null;
-                    this._endPoint = this._trackedFinger.position;
                     this.CheckTap();
                     this.CheckSwipe();
                     break;
@@ -53,25 +53,18 @@ public class GestureManager : MonoBehaviour
 
     private void Reset()
     {
-        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-        eventDataCurrentPosition.position = this._endPoint;
-
-        GameObject hitObject = null;
-
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-        if (results.Count > 1)
+        if(this.DragObject != null)
         {
-            hitObject = results[1].gameObject;
-        }
+            this.DragObject.transform.position = this._startPoint;
+            GameObject hitObject = GetHitObject(this._endPoint);
 
-        DragEventArgs args = new(this._trackedFinger, this.DragObject);
-        if (this.DragObject != null)
-        {
+            DragEventArgs args = new(this._trackedFinger, hitObject);
+           
             IResettable target = this.DragObject.GetComponent<IResettable>();
             if (target != null)
-                target.Reset(args, hitObject);
+                target.OnReset(args);
         }
+        
     }
 
     private void CheckTap(){
@@ -132,7 +125,8 @@ public class GestureManager : MonoBehaviour
 
     private void FireDragEvent(){
         GameObject hitObject = this.GetHitObject(this._trackedFinger.position);
-        if (hitObject != null) this.DragObject = hitObject;
+        if (hitObject != null)
+            this.DragObject = hitObject;
 
         DragEventArgs args = new (this._trackedFinger, this.DragObject);
         if(this.DragObject != null){

@@ -41,21 +41,21 @@ public class SpawnReceiver : MonoBehaviour, ITappable, ISwipeable, IDraggable, I
         }
     }
 
-    public void Reset(DragEventArgs args, GameObject bottom)
+    public void OnReset(DragEventArgs args)
     {
-        if (args.HitObject == this.gameObject)
+        if (this.gameObject.GetComponent<CardData>() != null)
         {
-            if (this.gameObject.GetComponent<CardData>().isStackable(bottom.GetComponent<CardData>()))
+            if (this.gameObject.GetComponent<CardData>().isStackable(args.HitObject.GetComponent<CardData>()))
             {
-                this._targetPosition = bottom.transform.position;
+                this._targetPosition = args.HitObject.transform.position;
                 this._targetPosition.y += 0.01f;
                 this._targetPosition.z -= 0.5f;
                 this._originalPosition = this._targetPosition;
             }
-
-            this.transform.position = this._originalPosition;
-            this._targetPosition = this._originalPosition;
         }
+
+        this.transform.position = this._originalPosition;
+        this._targetPosition = this._originalPosition;
     }
 
 
